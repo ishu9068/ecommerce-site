@@ -1,17 +1,449 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Home - Electronics Store</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Online Mobile World - Home</title>
+  <style>
+    /* Reset and base */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+    body {
+      background: #f5f7fa;
+      color: #333;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+    a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      user-select: none;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1rem;
+      user-select: none;
+    }
+    nav a:first-child {
+      margin-left: 0;
+    }
+    nav {
+      flex-grow: 1;
+      text-align: right;
+    }
+    /* Hero section */
+    .hero {
+      background: url('https://img.freepik.com/premium-photo/glass-smartphone-modern-mobile-device-3d-illustration-render_113524-390.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+      height: 80vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      color: white;
+      padding: 0 40px;
+      text-shadow: 0 0 12px rgba(0,0,0,0.85);
+      text-align: center;
+      animation: fadeInDown 1.5s ease forwards;
+    }
+    .hero h2 {
+      font-size: 3.8rem;
+      margin-bottom: 25px;
+      font-weight: 900;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease 0.4s forwards;
+    }
+    .hero p {
+      font-size: 1.6rem;
+      max-width: 700px;
+      margin: 0 auto 40px;
+      opacity: 0;
+      animation: fadeInUp 1.5s ease 0.8s forwards;
+    }
+    .hero button {
+      background: #007bff;
+      border: none;
+      padding: 18px 55px;
+      font-size: 1.3rem;
+      color: white;
+      font-weight: 700;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background 0.3s ease, box-shadow 0.3s ease;
+      user-select: none;
+      box-shadow: 0 5px 10px rgba(0,123,255,0.4);
+      opacity: 0;
+      animation: fadeInUp 1.5s ease 1.2s forwards;
+    }
+    .hero button:hover {
+      background: #0056b3;
+      box-shadow: 0 7px 15px rgba(0,86,179,0.6);
+    }
+    /* Featured products */
+    .featured {
+      max-width: 1300px;
+      margin: 50px auto 80px;
+      padding: 0 30px;
+    }
+    .featured h3 {
+      text-align: center;
+      font-size: 2.8rem;
+      margin-bottom: 45px;
+      letter-spacing: 1.5px;
+      font-weight: 800;
+      color: #111;
+      user-select: none;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      animation-delay: 1.5s;
+    }
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
+      gap: 30px;
+      animation: fadeIn 1s ease forwards;
+      opacity: 0;
+      animation-delay: 1.7s;
+    }
+    .product-card {
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+      padding: 25px;
+      text-align: center;
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      cursor: pointer;
+      user-select: none;
+      position: relative;
+      overflow: hidden;
+    }
+    .product-card::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      background: linear-gradient(120deg, transparent, rgba(0, 123, 255, 0.25), transparent);
+      transform: rotate(25deg);
+      transition: all 0.7s ease;
+      pointer-events: none;
+      opacity: 0;
+    }
+    .product-card:hover::before {
+      opacity: 1;
+      top: -10%;
+      left: -10%;
+    }
+    .product-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+    }
+    .product-card img {
+      width: 100%;
+      max-height: 200px;
+      object-fit: contain;
+      margin-bottom: 20px;
+      border-radius: 10px;
+      transition: transform 0.4s ease;
+    }
+    .product-card:hover img {
+      transform: scale(1.07);
+    }
+    .product-card h4 {
+      font-size: 1.4rem;
+      margin-bottom: 15px;
+      color: #222;
+      font-weight: 700;
+      min-height: 50px;
+      transition: color 0.3s ease;
+    }
+    .product-card:hover h4 {
+      color: #007bff;
+    }
+    .product-card p {
+      font-size: 1.05rem;
+      color: #555;
+      margin-bottom: 18px;
+      height: 60px;
+      overflow: hidden;
+      line-height: 1.3;
+    }
+    .price {
+      font-weight: 800;
+      font-size: 1.3rem;
+      color: #007bff;
+      letter-spacing: 0.05em;
+    }
+    /* Footer */
+    footer {
+      background: #222;
+      color: #ccc;
+      text-align: center;
+      padding: 25px 10px;
+      font-size: 0.9rem;
+      user-select: none;
+      box-shadow: inset 0 1px 4px rgba(255,255,255,0.1);
+    }
+    /* Animations */
+    @keyframes fadeIn {
+      to {opacity: 1;}
+    }
+    @keyframes fadeInDown {
+      from {
+        opacity: 0;
+        transform: translateY(-30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+    /* Responsive */
+    @media (max-width: 900px) {
+      nav {
+        text-align: center;
+        margin-top: 15px;
+      }
+      header {
+        flex-direction: column;
+        align-items: center;
+        padding: 20px 15px;
+      }
+      .hero h2 {
+        font-size: 2.8rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .hero button {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+      .product-card p {
+        height: auto;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to Electronics Store  ishuu</h1>
+
+<header>
+  <h1>Online Mobile World</h1>
   <nav>
-    <a href="/">Home</a> |
-    <a href="/products">Products</a> |
-    <a href="/about">About</a> |
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/about">About</a>
     <a href="/contact">Contact</a>
   </nav>
-  <p>This is the home page.</p>
+</header>
+
+<section class="hero">
+  <h2>Find Your Perfect Smartphone Today</h2>
+  <p>Explore the latest mobiles, exclusive offers, and trusted quality at unbeatable prices.</p>
+  <button onclick="alert('Redirecting to shop!')">Shop Now</button>
+</section>
+
+<section class="featured">
+  <h3>Featured Mobiles</h3>
+  <div class="products-grid" id="product-list">
+    <!-- Product cards inserted by JS -->
+  </div>
+</section>
+
+<footer>
+  &copy; 2025 Online Mobile World. All rights reserved.
+</footer>
+
+<script>
+  const products = [
+    {
+      name: "iPhone 14 Pro",
+      description: "6.1-inch display, A16 Bionic chip, Pro camera system.",
+      price: "$999",
+      image: "https://images.unsplash.com/photo-1661961115089-6f947e81adbf?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Samsung Galaxy S23 Ultra",
+      description: "6.8-inch display, Snapdragon 8 Gen 2, 200MP camera.",
+      price: "$1199",
+      image: "https://images.unsplash.com/photo-1679569656460-55b2617f73a9?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Google Pixel 7 Pro",
+      description: "6.7-inch display, Google Tensor G2 chip, excellent camera.",
+      price: "$899",
+      image: "https://images.unsplash.com/photo-1663058084475-9960c4e48ac6?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "OnePlus 11",
+      description: "6.7-inch AMOLED, Snapdragon 8 Gen 2, fast charging.",
+      price: "$699",
+      image: "https://images.unsplash.com/photo-1670564418039-24468ce1f9a6?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Xiaomi 13 Pro",
+      description: "6.73-inch AMOLED, Snapdragon 8 Gen 2, Leica camera.",
+      price: "$899",
+      image: "https://images.unsplash.com/photo-1672538284875-85c4f682d334?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Sony Xperia 1 IV",
+      description: "4K OLED display, Snapdragon 8 Gen 1, great video features.",
+      price: "$1199",
+      image: "https://images.unsplash.com/photo-1616480388865-9e25f0108f3a?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Samsung Galaxy Z Fold 4",
+      description: "Foldable design, multitasking, powerful performance.",
+      price: "$1799",
+      image: "https://images.unsplash.com/photo-1667462804355-0030a44258aa?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Motorola Edge 40",
+      description: "6.67-inch OLED, Snapdragon 8 Gen 2, sleek design.",
+      price: "$599",
+      image: "https://images.unsplash.com/photo-1682685790273-e5d5b35a9e0d?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Asus ROG Phone 7",
+      description: "Gaming phone, Snapdragon 8 Gen 2, 165Hz display.",
+      price: "$899",
+      image: "https://images.unsplash.com/photo-1656307023344-8d22396e7c9a?auto=format&fit=crop&w=600&q=80"
+    },
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+    ,
+    {
+      name: "Realme GT 3",
+      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
+      price: "$499",
+      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
+    }
+  ];
+
+  const container = document.getElementById('product-list');
+  products.forEach(({name, description, price, image}) => {
+    const div = document.createElement('div');
+    div.className = 'product-card';
+    div.innerHTML = `
+      <img src="${image}" alt="${name}" loading="lazy" />
+      <h4>${name}</h4>
+      <p>${description}</p>
+      <div class="price">${price}</div>
+    `;
+    container.appendChild(div);
+  });
+</script>
+
 </body>
 </html>
