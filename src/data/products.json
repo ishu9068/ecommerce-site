@@ -1,0 +1,16 @@
+﻿[
+  {
+    "id": "1",
+    "name": "Smartphone X",
+    "price": "₹49,999",
+    "image": "/images/phone1.jpg",
+    "description": "Latest smartphone with high-end features."
+  },
+  {
+    "id": "2",
+    "name": "Wireless Headphones",
+    "price": "₹4,999",
+    "image": "/images/headphone1.jpg",
+    "description": "Noise-cancelling headphones."
+  }
+]

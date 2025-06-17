@@ -1,0 +1,19 @@
+﻿body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-color: #f3f3f3;
+}
+
+nav a {
+  margin-right: 15px;
+  text-decoration: none;
+  color: blue;
+}
+
+.product {
+  border: 1px solid #ccc;
+  padding: 10px;
+  background: #fff;
+  margin: 10px 0;
+  box-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+}
