@@ -1,18 +1,325 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Products</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Products - Online Mobile World</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      color: #fff;
+      background: url('https://img.freepik.com/premium-photo/glass-smartphone-modern-mobile-device-3d-illustration-render_113524-390.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
+      position: relative;
+    }
+
+    body::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.75); /* dark overlay for readability */
+      z-index: -1;
+    }
+
+     a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      user-select: none;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+    nav a:first-child {
+      margin-left: 0;
+    }
+    nav {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    .main-content {
+      margin-top: 120px;
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin-left: auto;
+      margin-right: auto;
+    }
+
+    .section-title {
+      text-align: center;
+      font-size: 2.5rem;
+      margin-bottom: 30px;
+      color: #00eaff;
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 30px;
+      margin-bottom: 60px;
+    }
+
+    .product-card {
+      background-color: rgba(255, 255, 255, 0.1);
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+      text-align: center;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .product-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 8px 20px rgba(0,0,0,0.6);
+    }
+
+    .product-card img {
+      width: 100%;
+      height: 180px;
+      object-fit: contain;
+      border-radius: 8px;
+      margin-bottom: 15px;
+    }
+
+    .product-card h3 {
+      font-size: 1.2rem;
+      margin-bottom: 8px;
+      color: #fff;
+    }
+
+    .product-card p {
+      font-size: 0.95rem;
+      color: #ccc;
+      margin-bottom: 10px;
+    }
+
+    .product-card .price {
+      font-weight: bold;
+      font-size: 1.1rem;
+      color: #00ffcc;
+    }
+
+    footer {
+      background: linear-gradient(135deg, #1f1f1f, #292929);
+      color: #eee;
+      padding: 50px 20px 30px;
+      text-align: center;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    footer h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #bbb;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .social-icons i:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+    @keyframes fadeInUp {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      nav {
+        margin-top: 10px;
+      }
+
+      .footer-links {
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+  </style>
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
 </head>
 <body>
-  <h1>Our Products</h1>
+
+<header>
+  <h1>Online Mobile World</h1>
   <nav>
-    <a href="/">Home</a> |
-    <a href="/products">Products</a> |
-    <a href="/about">About</a> |
+       <a href="/">Home</a> 
+    <a href="/products">Products</a> 
+    <a href="/about">About</a> 
     <a href="/contact">Contact</a>
   </nav>
-  <div id='product-list'></div>
-  <script src='/js/main.js'></script>
+</header>
+
+<main class="main-content">
+  <section>
+    <h2 class="section-title">Latest Mobiles</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1661961115089-6f947e81adbf?auto=format&fit=crop&w=600&q=80" alt="iPhone 14 Pro">
+        <h3>iPhone 14 Pro</h3>
+        <p>6.1-inch OLED, A16 Chip</p>
+        <div class="price">₹1,29,999</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80" alt="Samsung Galaxy">
+        <h3>Galaxy S23 Ultra</h3>
+        <p>200MP Camera, 5000mAh Battery</p>
+        <div class="price">₹1,24,999</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Accessories</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1612810806763-91cb3a8f4531?auto=format&fit=crop&w=600&q=80" alt="Neckband">
+        <h3>boAt Neckband 255</h3>
+        <p>Bluetooth v5.0, Magnetic Earbuds</p>
+        <div class="price">₹1,099</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1611817752530-57b934e19c5a?auto=format&fit=crop&w=600&q=80" alt="Earbuds">
+        <h3>Noise Buds VS104</h3>
+        <p>40 Hours Playback, IPX5</p>
+        <div class="price">₹1,499</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Chargers</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1598327105666-5b89351aff97?auto=format&fit=crop&w=600&q=80" alt="Charger">
+        <h3>Samsung 25W Charger</h3>
+        <p>Fast Charging Type-C Adapter</p>
+        <div class="price">₹999</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1608629438889-4b36de4c5c92?auto=format&fit=crop&w=600&q=80" alt="Mi Charger">
+        <h3>Mi 33W SonicCharge 2.0</h3>
+        <p>Quick Charge Support</p>
+        <div class="price">₹899</div>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2 class="section-title">Smartwatches</h2>
+    <div class="products-grid">
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1556246073-3b1de15b3c9d?auto=format&fit=crop&w=600&q=80" alt="Smartwatch">
+        <h3>Fire-Boltt Ring 3</h3>
+        <p>1.8” Display, Bluetooth Calling</p>
+        <div class="price">₹2,499</div>
+      </div>
+      <div class="product-card">
+        <img src="https://images.unsplash.com/photo-1623960441765-46091e8e9f70?auto=format&fit=crop&w=600&q=80" alt="Smartwatch">
+        <h3>Noise ColorFit Ultra</h3>
+        <p>Heart Rate, SpO2, Sleep Monitor</p>
+        <div class="price">₹3,299</div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <h3>Online Mobile World</h3>
+  <p>Bringing you the latest and greatest in mobile technology.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Support</a>
+  </div>
+  <div class="social-icons">
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-youtube"></i>
+  </div>
+  <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
+</footer>
+
 </body>
 </html>

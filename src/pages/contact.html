@@ -1,17 +1,275 @@
 ﻿<!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Contact Us</title>
-  <link rel="stylesheet" href="/css/style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Online Mobile World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(to bottom, #0f2027, #203a43, #2c5364);
+      color: white;
+    }
+
+    /* Header */
+ a {
+      text-decoration: none;
+      color: #007bff;
+      transition: color 0.3s ease;
+    }
+    a:hover {
+      color: #0056b3;
+      text-decoration: underline;
+    }
+    header {
+      background: #222;
+      color: #fff;
+      padding: 20px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
+    }
+    header h1 {
+      font-size: 2.4rem;
+      letter-spacing: 2px;
+      font-weight: 900;
+      user-select: none;
+    }
+    nav a {
+      color: #fff;
+      margin-left: 25px;
+      font-weight: 600;
+      font-size: 1.2rem;
+      user-select: none;
+    }
+    nav a:first-child {
+      margin-left: 0;
+    }
+    nav {
+      flex-grow: 1;
+      text-align: right;
+    }
+
+    /* Contact Section */
+    .contact-section {
+      min-height: 90vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 60px 20px;
+    }
+
+    .contact-box {
+      background: rgba(255, 255, 255, 0.05);
+      border: 1px solid rgba(255, 255, 255, 0.15);
+      border-radius: 20px;
+      padding: 40px;
+      max-width: 600px;
+      width: 100%;
+      backdrop-filter: blur(10px);
+      box-shadow: 0 0 20px rgba(0, 255, 255, 0.15);
+      animation: fadeIn 1s ease-out;
+    }
+
+    .contact-box h2 {
+      font-size: 30px;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #00c3ff;
+    }
+
+    .contact-box p {
+      text-align: center;
+      margin-bottom: 30px;
+      font-size: 15px;
+      color: #ccc;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    input, textarea {
+      padding: 12px 15px;
+      border-radius: 10px;
+      border: none;
+      background: rgba(255,255,255,0.08);
+      color: white;
+      font-size: 16px;
+    }
+
+    input::placeholder, textarea::placeholder {
+      color: #aaa;
+    }
+
+    textarea {
+      resize: vertical;
+      min-height: 100px;
+    }
+
+    button {
+      padding: 12px;
+      background-color: #00c3ff;
+      border: none;
+      border-radius: 10px;
+      font-size: 16px;
+      font-weight: bold;
+      color: #000;
+      cursor: pointer;
+      transition: 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #00a0d5;
+    }
+
+    /* Footer */
+   footer {
+      background: linear-gradient(135deg, #1f1f1f, #292929);
+      color: #eee;
+      padding: 50px 20px 30px;
+      text-align: center;
+      animation: fadeInUp 1s ease-in-out;
+    }
+
+    footer h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #bbb;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .social-icons i:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
+
+    @keyframes fadeIn {
+      from {
+        opacity: 0;
+        transform: translateY(30px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @media (max-width: 600px) {
+      header {
+        flex-direction: column;
+        padding: 20px;
+        gap: 10px;
+      }
+
+      nav a {
+        margin-left: 15px;
+      }
+
+      .contact-box h2 {
+        font-size: 24px;
+      }
+    }
+  </style>
 </head>
 <body>
-  <h1>Contact Us</h1>
+
+  <!-- Header -->
+ <header>
+  <h1>Online Mobile World</h1>
   <nav>
-    <a href="/">Home</a> |
-    <a href="/products">Products</a> |
-    <a href="/about">About</a> |
+    <a href="/">Home</a>
+    <a href="/products">Products</a>
+    <a href="/about">About</a>
     <a href="/contact">Contact</a>
   </nav>
-  <p>You can reach us at: example@email.com</p>
+</header>
+
+  <!-- Contact Section -->
+  <section class="contact-section">
+    <div class="contact-box">
+      <h2>Get in Touch</h2>
+      <p>Have questions, suggestions or support inquiries? We'd love to hear from you.</p>
+      <form action="#" method="POST">
+        <input type="text" placeholder="Your Name" required />
+        <input type="email" placeholder="Your Email" required />
+        <input type="text" placeholder="Subject" />
+        <textarea placeholder="Your Message" required></textarea>
+        <button type="submit">Send Message</button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+  <h3>Online Mobile World</h3>
+  <p>Bringing you the latest and greatest in mobile technology.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Support</a>
+  </div>
+  <div class="social-icons">
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-youtube"></i>
+  </div>
+  <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
+</footer>
+
 </body>
 </html>

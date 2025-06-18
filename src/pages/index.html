@@ -2,8 +2,15 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Online Mobile World - Home</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Contact - Online Mobile World</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
+     <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+    crossorigin="anonymous"
+    referrerpolicy="no-referrer"
+  />
   <style>
     /* Reset and base */
     * {
@@ -18,7 +25,7 @@
       line-height: 1.6;
       overflow-x: hidden;
     }
-    a {
+   a {
       text-decoration: none;
       color: #007bff;
       transition: color 0.3s ease;
@@ -50,7 +57,7 @@
       color: #fff;
       margin-left: 25px;
       font-weight: 600;
-      font-size: 1rem;
+      font-size: 1.2rem;
       user-select: none;
     }
     nav a:first-child {
@@ -204,14 +211,57 @@
     }
     /* Footer */
     footer {
-      background: #222;
-      color: #ccc;
+      background: linear-gradient(135deg, #1f1f1f, #292929);
+      color: #eee;
+      padding: 50px 20px 30px;
       text-align: center;
-      padding: 25px 10px;
-      font-size: 0.9rem;
-      user-select: none;
-      box-shadow: inset 0 1px 4px rgba(255,255,255,0.1);
+      animation: fadeInUp 1s ease-in-out;
     }
+
+    footer h3 {
+      font-size: 2rem;
+      margin-bottom: 10px;
+      color: #fff;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+      color: #ccc;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+    }
+
+    .footer-links a {
+      text-decoration: none;
+      color: #bbb;
+      margin: 0 15px;
+      transition: color 0.3s ease;
+    }
+
+    .footer-links a:hover {
+      color: #fff;
+    }
+
+    .social-icons {
+      margin-top: 20px;
+    }
+
+    .social-icons i {
+      font-size: 24px;
+      margin: 0 10px;
+      color: #999;
+      transition: transform 0.3s ease, color 0.3s ease;
+      cursor: pointer;
+    }
+
+    .social-icons i:hover {
+      color: #fff;
+      transform: scale(1.2);
+    }
+
     /* Animations */
     @keyframes fadeIn {
       to {opacity: 1;}
@@ -294,7 +344,20 @@
 </section>
 
 <footer>
-  &copy; 2025 Online Mobile World. All rights reserved.
+  <h3>Online Mobile World</h3>
+  <p>Bringing you the latest and greatest in mobile technology.</p>
+  <div class="footer-links">
+    <a href="#">Privacy Policy</a>
+    <a href="#">Terms</a>
+    <a href="#">Support</a>
+  </div>
+  <div class="social-icons">
+    <i class="fab fa-facebook-f"></i>
+    <i class="fab fa-twitter"></i>
+    <i class="fab fa-instagram"></i>
+    <i class="fab fa-youtube"></i>
+  </div>
+  <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
 </footer>
 
 <script>
