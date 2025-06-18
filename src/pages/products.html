@@ -193,15 +193,19 @@
         transform: translateY(0);
       }
     }
-
-    @media (max-width: 600px) {
+    /* Responsive styles */
+    @media (max-width: 900px) {
+        nav {
+        text-align: center;
+        margin-top: 15px;
+      }
       header {
         flex-direction: column;
-        text-align: center;
+        align-items: center;
+        padding: 20px 15px;
       }
-
-      nav {
-        margin-top: 10px;
+      header h1 {
+        text-align: center;
       }
 
       .footer-links {
