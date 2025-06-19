@@ -5,18 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Contact - Online Mobile World</title>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" crossorigin="anonymous" referrerpolicy="no-referrer"/>
+
   <style>
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
 
     body {
       font-family: 'Poppins', sans-serif;
@@ -24,16 +16,17 @@
       color: white;
     }
 
-    /* Header */
- a {
+    a {
       text-decoration: none;
       color: #007bff;
       transition: color 0.3s ease;
     }
     a:hover {
-      color: #0056b3;
+      color: #00c3ff;
       text-decoration: underline;
     }
+
+    /* Header */
     header {
       background: #222;
       color: #fff;
@@ -47,12 +40,27 @@
       z-index: 1000;
       box-shadow: 0 2px 5px rgba(0,0,0,0.3);
     }
+
     header h1 {
       font-size: 2.4rem;
       letter-spacing: 2px;
       font-weight: 900;
       user-select: none;
     }
+
+    .menu-toggle {
+      display: none;
+      font-size: 28px;
+      color: #fff;
+      cursor: pointer;
+    }
+
+    nav {
+      flex-grow: 1;
+      text-align: right;
+      transition: all 0.3s ease;
+    }
+
     nav a {
       color: #fff;
       margin-left: 25px;
@@ -60,12 +68,9 @@
       font-size: 1.3rem;
       user-select: none;
     }
+
     nav a:first-child {
       margin-left: 0;
-    }
-    nav {
-      flex-grow: 1;
-      text-align: right;
     }
 
     /* Contact Section */
@@ -144,7 +149,7 @@
     }
 
     /* Footer */
-   footer {
+    footer {
       background: linear-gradient(135deg, #1f1f1f, #292929);
       color: #eee;
       padding: 50px 20px 30px;
@@ -196,38 +201,38 @@
       transform: scale(1.2);
     }
 
-
     @keyframes fadeIn {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
-      }
-      to {
-        opacity: 1;
-        transform: translateY(0);
-      }
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
     }
 
+    /* Responsive */
     @media (max-width: 900px) {
-     nav {
-        text-align: center;
-        margin-top: 15px;
-      }
       header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         padding: 20px 15px;
       }
-      header h1 {
-        text-align: center;
+
+      .menu-toggle {
+        display: block;
       }
 
-      .contact-box h2 {
-        font-size: 24px;
+      nav {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+        text-align: left;
       }
 
-      header h1 {
-        text-align: center;;
+      nav.active {
+        display: block;
+      }
+
+      nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1.1rem;
       }
     }
   </style>
@@ -235,15 +240,18 @@
 <body>
 
   <!-- Header -->
- <header>
-  <h1>Online Mobile World</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="/products">Products</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-  </nav>
-</header>
+  <header>
+    <h1>Online Mobile World</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="products.html">Products</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+    </nav>
+  </header>
 
   <!-- Contact Section -->
   <section class="contact-section">
@@ -262,21 +270,27 @@
 
   <!-- Footer -->
   <footer>
-  <h3>Online Mobile World</h3>
-  <p>Bringing you the latest and greatest in mobile technology.</p>
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Support</a>
-  </div>
-  <div class="social-icons">
-    <i class="fab fa-facebook-f"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-youtube"></i>
-  </div>
-  <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
-</footer>
+    <h3>Online Mobile World</h3>
+    <p>Bringing you the latest and greatest in mobile technology.</p>
+    <div class="footer-links">
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms</a>
+      <a href="#">Support</a>
+    </div>
+    <div class="social-icons">
+      <i class="fab fa-facebook-f"></i>
+      <i class="fab fa-twitter"></i>
+      <i class="fab fa-instagram"></i>
+      <i class="fab fa-youtube"></i>
+    </div>
+    <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
+  </footer>
 
+  <!-- JS Toggle -->
+  <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
