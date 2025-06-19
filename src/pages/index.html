@@ -288,19 +288,30 @@
     }
     /* Responsive */
     @media (max-width: 900px) {
-      nav {
-        text-align: center;
-        margin-top: 15px;
+        nav {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+        text-align: left;
       }
-      header {
+      .menu-toggle {
+        display: block;
+      }
+          nav.active {
+        display: block;
+      }
+        nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1.1rem;
+      }
+       header {
         flex-direction: column;
-        align-items: center;
+        align-items: flex-start;
         padding: 20px 15px;
       }
 
-       header h1 {
-        text-align: center;;
-      }
+  
       .hero h2 {
         font-size: 2.8rem;
       }
@@ -324,17 +335,21 @@
 </head>
 <body>
 
-<header>
-  <h1>Online Mobile World</h1>
-  <nav>
-    <a href="/">Home</a>
+ <header>
+    <h1>Online Mobile World</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
+    <nav>
+   <a href="/">Home</a>
     <a href="/products">Products</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
     <!-- <a href="/cart">Cart</a> -->
     <a href="/login">Login</a>
-  </nav>
-</header>
+    </nav>
+  </header>
+  
 
 <section class="hero">
   <h2>Find Your Perfect Smartphone Today</h2>
@@ -367,6 +382,9 @@
 </footer>
 
 <script>
+   function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
+    }
  const products = [
   {
     name: "iPhone 14 Pro",

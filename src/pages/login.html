@@ -179,19 +179,60 @@
       header { flex-direction: column; text-align: center; }
       nav { text-align: center; margin-top: 10px; }
     }
+     @media (max-width: 900px) {
+        nav {
+        display: none;
+        width: 100%;
+        margin-top: 10px;
+        text-align: left;
+      }
+      .menu-toggle {
+        display: block;
+      }
+          nav.active {
+        display: block;
+      }
+        nav a {
+        display: block;
+        margin: 10px 0;
+        font-size: 1.1rem;
+      }
+       header {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px 15px;
+      }
+
+  
+      .hero h2 {
+        font-size: 2.8rem;
+      }
+      .hero p {
+        font-size: 1.2rem;
+      }
+      .hero button {
+        padding: 15px 35px;
+        font-size: 1.1rem;
+      }
+    }
   </style>
 </head>
 <body>
 
   <!-- Header -->
-  <header>
+   <header>
     <h1>Online Mobile World</h1>
+    <div class="menu-toggle" onclick="toggleMenu()">
+      <i class="fas fa-bars"></i>
+    </div>
     <nav>
-    <a href="/">Home</a>
+   <a href="/">Home</a>
     <a href="/products">Products</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
-  </nav>
+    <!-- <a href="/cart">Cart</a> -->
+    <a href="/login">Login</a>
+    </nav>
   </header>
 
   <!-- Login Form -->
@@ -224,6 +265,10 @@
     </div>
     <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
   </footer>
-
+ <script>
+    function toggleMenu() {
+      document.querySelector('nav').classList.toggle('active');
+    }
+  </script>
 </body>
 </html>
