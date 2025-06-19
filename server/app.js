@@ -22,6 +22,14 @@ app.get('/contact', (req, res) => {
   res.sendFile(path.join(__dirname, '..', 'src', 'pages', 'contact.html'));
 });
 
+app.get('/login', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'src', 'pages', 'login.html'));
+});
+
+app.get('/signup', (req, res) => {
+  res.sendFile(path.join(__dirname, '..', 'src', 'pages', 'signup.html'));
+});
+
 app.listen(PORT, () => {
   console.log(`Server is running on http://localhost:${PORT}`);
 }

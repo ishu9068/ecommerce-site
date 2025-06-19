@@ -57,7 +57,7 @@
       color: #fff;
       margin-left: 25px;
       font-weight: 600;
-      font-size: 1.2rem;
+      font-size: 1.3rem;
       user-select: none;
     }
     nav a:first-child {
@@ -331,6 +331,8 @@
     <a href="/products">Products</a>
     <a href="/about">About</a>
     <a href="/contact">Contact</a>
+    <!-- <a href="/cart">Cart</a> -->
+    <a href="/login">Login</a>
   </nav>
 </header>
 
@@ -365,138 +367,195 @@
 </footer>
 
 <script>
-  const products = [
-    {
-      name: "iPhone 14 Pro",
-      description: "6.1-inch display, A16 Bionic chip, Pro camera system.",
-      price: "$999",
-      image: "https://images.unsplash.com/photo-1661961115089-6f947e81adbf?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Samsung Galaxy S23 Ultra",
-      description: "6.8-inch display, Snapdragon 8 Gen 2, 200MP camera.",
-      price: "$1199",
-      image: "https://images.unsplash.com/photo-1679569656460-55b2617f73a9?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Google Pixel 7 Pro",
-      description: "6.7-inch display, Google Tensor G2 chip, excellent camera.",
-      price: "$899",
-      image: "https://images.unsplash.com/photo-1663058084475-9960c4e48ac6?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "OnePlus 11",
-      description: "6.7-inch AMOLED, Snapdragon 8 Gen 2, fast charging.",
-      price: "$699",
-      image: "https://images.unsplash.com/photo-1670564418039-24468ce1f9a6?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Xiaomi 13 Pro",
-      description: "6.73-inch AMOLED, Snapdragon 8 Gen 2, Leica camera.",
-      price: "$899",
-      image: "https://images.unsplash.com/photo-1672538284875-85c4f682d334?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Sony Xperia 1 IV",
-      description: "4K OLED display, Snapdragon 8 Gen 1, great video features.",
-      price: "$1199",
-      image: "https://images.unsplash.com/photo-1616480388865-9e25f0108f3a?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Samsung Galaxy Z Fold 4",
-      description: "Foldable design, multitasking, powerful performance.",
-      price: "$1799",
-      image: "https://images.unsplash.com/photo-1667462804355-0030a44258aa?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Motorola Edge 40",
-      description: "6.67-inch OLED, Snapdragon 8 Gen 2, sleek design.",
-      price: "$599",
-      image: "https://images.unsplash.com/photo-1682685790273-e5d5b35a9e0d?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Asus ROG Phone 7",
-      description: "Gaming phone, Snapdragon 8 Gen 2, 165Hz display.",
-      price: "$899",
-      image: "https://images.unsplash.com/photo-1656307023344-8d22396e7c9a?auto=format&fit=crop&w=600&q=80"
-    },
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-    ,
-    {
-      name: "Realme GT 3",
-      description: "6.74-inch AMOLED, Snapdragon 8 Gen 2, affordable price.",
-      price: "$499",
-      image: "https://images.unsplash.com/photo-1682685709446-f27f7b5dfb67?auto=format&fit=crop&w=600&q=80"
-    }
-  ];
+ const products = [
+  {
+    name: "iPhone 14 Pro",
+    description: "6.1‑inch Super Retina XDR, A16 Bionic, Pro triple‑camera system.",
+    price: "₹94,900",
+    image: "https://via.placeholder.com/600x400?text=iPhone+14+Pro"
+  },
+  {
+    name: "iPhone 14 Plus",
+    description: "6.7‑inch Super Retina XDR, A15 Bionic, dual‑camera system.",
+    price: "₹89,900",
+    image: "https://via.placeholder.com/600x400?text=iPhone+14+Plus"
+  },
+  {
+    name: "iPhone 13",
+    description: "6.1‑inch OLED, A15 Bionic, dual‑camera system.",
+    price: "₹69,900",
+    image: "https://via.placeholder.com/600x400?text=iPhone+13"
+  },
+  {
+    name: "Samsung Galaxy S23 Ultra",
+    description: "6.8‑inch AMOLED, Snapdragon 8 Gen 2, 200 MP quad‑camera.",
+    price: "₹124,999",
+    image: "https://via.placeholder.com/600x400?text=Galaxy+S23+Ultra"
+  },
+  {
+    name: "Samsung Galaxy S23",
+    description: "6.1‑inch AMOLED, Snapdragon 8 Gen 2, versatile triple‑camera.",
+    price: "₹79,999",
+    image: "https://via.placeholder.com/600x400?text=Galaxy+S23"
+  },
+  {
+    name: "Samsung Galaxy Z Fold 4",
+    description: "7.6‑inch foldable AMOLED, multitasking powerhouse.",
+    price: "₹184,999",
+    image: "https://via.placeholder.com/600x400?text=Galaxy+Z+Fold+4"
+  },
+  {
+    name: "Google Pixel 7 Pro",
+    description: "6.7‑inch LTPO OLED, Tensor G2, outstanding computational camera.",
+    price: "₹84,999",
+    image: "https://via.placeholder.com/600x400?text=Pixel+7+Pro"
+  },
+  {
+    name: "Google Pixel 7",
+    description: "6.3‑inch OLED, Tensor G2, strong photo & video AI.",
+    price: "₹59,999",
+    image: "https://via.placeholder.com/600x400?text=Pixel+7"
+  },
+  {
+    name: "OnePlus 11",
+    description: "6.7‑inch AMOLED, Snapdragon 8 Gen 2, Hasselblad‑tuned cameras.",
+    price: "₹56,999",
+    image: "https://via.placeholder.com/600x400?text=OnePlus+11"
+  },
+  {
+    name: "OnePlus 10 Pro",
+    description: "6.7‑inch LTPO AMOLED, Snapdragon 8 Gen 1, quad‑camera by Hasselblad.",
+    price: "₹64,999",
+    image: "https://via.placeholder.com/600x400?text=OnePlus+10+Pro"
+  },
+  {
+    name: "Oppo Find X6 Pro",
+    description: "6.8‑inch AMOLED, Snapdragon 8 Gen 2, flagship imaging system.",
+    price: "₹109,990",
+    image: "https://via.placeholder.com/600x400?text=Oppo+Find+X6+Pro"
+  },
+  {
+    name: "Oppo Reno9 Pro",
+    description: "6.7‑inch AMOLED, Dimensity 9200, sleek design.",
+    price: "₹52,999",
+    image: "https://via.placeholder.com/600x400?text=Oppo+Reno9+Pro"
+  },
+  {
+    name: "Vivo X90 Pro",
+    description: "6.78‑inch AMOLED, Dimensity 9200, Zeiss cameras.",
+    price: "₹79,999",
+    image: "https://via.placeholder.com/600x400?text=Vivo+X90+Pro"
+  },
+  {
+    name: "Vivo V29 Pro",
+    description: "6.78‑inch AMOLED, Dimensity 8200, slim & stylish.",
+    price: "₹34,999",
+    image: "https://via.placeholder.com/600x400?text=Vivo+V29+Pro"
+  },
+  {
+    name: "Xiaomi 13 Pro",
+    description: "6.73‑inch AMOLED, Snapdragon 8 Gen 2, Leica‑branded camera.",
+    price: "₹79,999",
+    image: "https://via.placeholder.com/600x400?text=Xiaomi+13+Pro"
+  },
+  {
+    name: "Xiaomi 13T Pro",
+    description: "6.67‑inch AMOLED, Dimensity 9200+, 200 MP camera.",
+    price: "₹49,999",
+    image: "https://via.placeholder.com/600x400?text=Xiaomi+13T+Pro"
+  },
+  {
+    name: "Motorola Edge 40",
+    description: "6.67‑inch OLED, Snapdragon 8 Gen 2, ready‑to‑run gaming.",
+    price: "₹31,999",
+    image: "https://via.placeholder.com/600x400?text=Motorola+Edge+40"
+  },
+  {
+    name: "Motorola Edge+ (2024)",
+    description: "6.9‑inch OLED, Snapdragon 8 Gen 3, flagship specs.",
+    price: "₹64,999",
+    image: "https://via.placeholder.com/600x400?text=Motorola+Edge+Plus"
+  },
+  {
+    name: "Sony Xperia 1 V",
+    description: "6.5‑inch 4K OLED, Snapdragon 8 Gen 2, pro‑video features.",
+    price: "₹1,19,990",
+    image: "https://via.placeholder.com/600x400?text=Sony+Xperia+1V"
+  },
+  {
+    name: "Sony Xperia 10 V",
+    description: "6.1‑inch OLED, Snapdragon 695, compact mid‑range.",
+    price: "₹29,990",
+    image: "https://via.placeholder.com/600x400?text=Sony+Xperia+10V"
+  },
+  {
+    name: "Realme GT 3",
+    description: "6.74‑inch AMOLED, Snapdragon 8 Gen 2, 240 W fast charge.",
+    price: "₹49,999",
+    image: "https://via.placeholder.com/600x400?text=Realme+GT+3"
+  },
+  {
+    name: "Realme 11 Pro+",
+    description: "6.7‑inch AMOLED, Dimensity 920, 200 MP pro camera.",
+    price: "₹34,999",
+    image: "https://via.placeholder.com/600x400?text=Realme+11+Pro+"
+  },
+  {
+    name: "Realme Narzo 60 Pro",
+    description: "6.67‑inch AMOLED, Dimensity 7050, budget flagship.",
+    price: "₹24,999",
+    image: "https://via.placeholder.com/600x400?text=Realme+Narzo+60+Pro"
+  },
+  {
+    name: "Poco F5 Pro",
+    description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, Dolby Atmos.",
+    price: "₹29,999",
+    image: "https://via.placeholder.com/600x400?text=Poco+F5+Pro"
+  },
+  {
+    name: "Poco X7 Pro",
+    description: "6.67‑inch AMOLED, Dimensity 8100, value king.",
+    price: "₹24,999",
+    image: "https://via.placeholder.com/600x400?text=Poco+X7+Pro"
+  },
+  {
+    name: "Samsung Galaxy A55",
+    description: "6.4‑inch Super AMOLED, Exynos 1480, IP67 water‑resistant.",
+    price: "₹29,999",
+    image: "https://via.placeholder.com/600x400?text=Galaxy+A55"
+  },
+  {
+    name: "iQOO Neo 7",
+    description: "6.62‑inch AMOLED, Dimensity 8200, gaming‑focused.",
+    price: "₹27,999",
+    image: "https://via.placeholder.com/600x400?text=iQOO+Neo+7"
+  },
+  {
+    name: "Asus ROG Phone 7",
+    description: "6.78‑inch AMOLED 165 Hz, Snapdragon 8 Gen 2, gaming beast.",
+    price: "₹69,999",
+    image: "https://via.placeholder.com/600x400?text=ROG+Phone+7"
+  },
+  {
+    name: "Nothing Phone (2)",
+    description: "6.7‑inch AMOLED, Snapdragon 8+ Gen 1, Glyph lights.",
+    price: "₹39,999",
+    image: "https://via.placeholder.com/600x400?text=Nothing+Phone+2"
+  },
+  {
+    name: "Redmi Note 13 Pro+",
+    description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, 200 MP OIS.",
+    price: "₹29,999",
+    image: "https://via.placeholder.com/600x400?text=Redmi+Note+13+Pro+"
+  },
+  {
+    name: "Samsung Galaxy S21 FE",
+    description: "6.4‑inch AMOLED, Exynos 2100, triple‑camera value.",
+    price: "₹44,999",
+    image: "https://via.placeholder.com/600x400?text=Galaxy+S21+FE"
+  }
+];
+
 
   const container = document.getElementById('product-list');
   products.forEach(({name, description, price, image}) => {
