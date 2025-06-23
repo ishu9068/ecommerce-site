@@ -1,593 +1,580 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Contact - Online Mobile World</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet"/>
-     <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
-    crossorigin="anonymous"
-    referrerpolicy="no-referrer"
-  />
-  <style>
-    /* Reset and base */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    }
-    body {
-      background: #f5f7fa;
-      color: #333;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-   a {
-      text-decoration: none;
-      color: #007bff;
-      transition: color 0.3s ease;
-    }
-    a:hover {
-      color: #0056b3;
-      text-decoration: underline;
-    }
-    header {
-      background: #222;
-      color: #fff;
-      padding: 20px 40px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-    }
-    header h1 {
-      font-size: 2.4rem;
-      letter-spacing: 2px;
-      font-weight: 900;
-      user-select: none;
-    }
-    nav a {
-      color: #fff;
-      margin-left: 25px;
-      font-weight: 600;
-      font-size: 1.3rem;
-      user-select: none;
-    }
-    nav a:first-child {
-      margin-left: 0;
-    }
-    nav {
-      flex-grow: 1;
-      text-align: right;
-    }
-    /* Hero section */
-    .hero {
-      background: url('https://img.freepik.com/premium-photo/glass-smartphone-modern-mobile-device-3d-illustration-render_113524-390.jpg?semt=ais_hybrid&w=740') no-repeat center center/cover;
-      height: 80vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      color: white;
-      padding: 0 40px;
-      text-shadow: 0 0 12px rgba(0,0,0,0.85);
-      text-align: center;
-      animation: fadeInDown 1.5s ease forwards;
-    }
-    .hero h2 {
-      font-size: 3.8rem;
-      margin-bottom: 25px;
-      font-weight: 900;
-      opacity: 0;
-      animation: fadeInUp 1.5s ease 0.4s forwards;
-    }
-    .hero p {
-      font-size: 1.6rem;
-      max-width: 700px;
-      margin: 0 auto 40px;
-      opacity: 0;
-      animation: fadeInUp 1.5s ease 0.8s forwards;
-    }
-    .hero button {
-      background: #007bff;
-      border: none;
-      padding: 18px 55px;
-      font-size: 1.3rem;
-      color: white;
-      font-weight: 700;
-      border-radius: 6px;
-      cursor: pointer;
-      transition: background 0.3s ease, box-shadow 0.3s ease;
-      user-select: none;
-      box-shadow: 0 5px 10px rgba(0,123,255,0.4);
-      opacity: 0;
-      animation: fadeInUp 1.5s ease 1.2s forwards;
-    }
-    .hero button:hover {
-      background: #0056b3;
-      box-shadow: 0 7px 15px rgba(0,86,179,0.6);
-    }
-    /* Featured products */
-    .featured {
-      max-width: 1300px;
-      margin: 50px auto 80px;
-      padding: 0 30px;
-    }
-    .featured h3 {
-      text-align: center;
-      font-size: 2.8rem;
-      margin-bottom: 45px;
-      letter-spacing: 1.5px;
-      font-weight: 800;
-      color: #111;
-      user-select: none;
-      animation: fadeIn 1s ease forwards;
-      opacity: 0;
-      animation-delay: 1.5s;
-    }
-    .products-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill,minmax(280px,1fr));
-      gap: 30px;
-      animation: fadeIn 1s ease forwards;
-      opacity: 0;
-      animation-delay: 1.7s;
-    }
-    .product-card {
-      background: white;
-      border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
-      padding: 25px;
-      text-align: center;
-      transition: transform 0.35s ease, box-shadow 0.35s ease;
-      cursor: pointer;
-      user-select: none;
-      position: relative;
-      overflow: hidden;
-    }
-    .product-card::before {
-      content: '';
-      position: absolute;
-      top: -50%;
-      left: -50%;
-      width: 200%;
-      height: 200%;
-      background: linear-gradient(120deg, transparent, rgba(0, 123, 255, 0.25), transparent);
-      transform: rotate(25deg);
-      transition: all 0.7s ease;
-      pointer-events: none;
-      opacity: 0;
-    }
-    .product-card:hover::before {
-      opacity: 1;
-      top: -10%;
-      left: -10%;
-    }
-    .product-card:hover {
-      transform: translateY(-12px);
-      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
-    }
-    .product-card img {
-      width: 100%;
-      max-height: 200px;
-      object-fit: contain;
-      margin-bottom: 20px;
-      border-radius: 10px;
-      transition: transform 0.4s ease;
-    }
-    .product-card:hover img {
-      transform: scale(1.07);
-    }
-    .product-card h4 {
-      font-size: 1.4rem;
-      margin-bottom: 15px;
-      color: #222;
-      font-weight: 700;
-      min-height: 50px;
-      transition: color 0.3s ease;
-    }
-    .product-card:hover h4 {
-      color: #007bff;
-    }
-    .product-card p {
-      font-size: 1.05rem;
-      color: #555;
-      margin-bottom: 18px;
-      height: 60px;
-      overflow: hidden;
-      line-height: 1.3;
-    }
-    .price {
-      font-weight: 800;
-      font-size: 1.3rem;
-      color: #007bff;
-      letter-spacing: 0.05em;
-    }
-    /* Footer */
-    footer {
-      background: linear-gradient(135deg, #1f1f1f, #292929);
-      color: #eee;
-      padding: 50px 20px 30px;
-      text-align: center;
-      animation: fadeInUp 1s ease-in-out;
-    }
-
-    footer h3 {
-      font-size: 2rem;
-      margin-bottom: 10px;
-      color: #fff;
-    }
-
-    footer p {
-      font-size: 1rem;
-      margin-bottom: 20px;
-      color: #ccc;
-    }
-
-    .footer-links {
-      margin: 20px 0;
-    }
-
-    .footer-links a {
-      text-decoration: none;
-      color: #bbb;
-      margin: 0 15px;
-      transition: color 0.3s ease;
-    }
-
-    .footer-links a:hover {
-      color: #fff;
-    }
-
-    .social-icons {
-      margin-top: 20px;
-    }
-
-    .social-icons i {
-      font-size: 24px;
-      margin: 0 10px;
-      color: #999;
-      transition: transform 0.3s ease, color 0.3s ease;
-      cursor: pointer;
-    }
-
-    .social-icons i:hover {
-      color: #fff;
-      transform: scale(1.2);
-    }
-
-    /* Animations */
-    @keyframes fadeIn {
-      to {opacity: 1;}
-    }
-    @keyframes fadeInDown {
-      from {
-        opacity: 0;
-        transform: translateY(-30px);
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Online Mobile World</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      /* Reset and base */
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+        font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      body {
+        background: #f5f7fa;
+        color: #333;
+        line-height: 1.6;
+        overflow-x: hidden;
       }
-    }
-    @keyframes fadeInUp {
-      from {
-        opacity: 0;
-        transform: translateY(30px);
+      a {
+        text-decoration: none;
+        color: #007bff;
+        transition: color 0.3s ease;
       }
-      to {
-        opacity: 1;
-        transform: translateY(0);
+      a:hover {
+        color: #0056b3;
+        text-decoration: underline;
       }
-    }
-    /* Responsive */
-    @media (max-width: 900px) {
-        nav {
-        display: none;
-        width: 100%;
-        margin-top: 10px;
-        text-align: left;
+      header {
+        background: #222;
+        color: #fff;
+        padding: 20px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
       }
+      header h1 {
+        font-size: 2.4rem;
+        letter-spacing: 2px;
+        font-weight: 900;
+        user-select: none;
+      }
+
       .menu-toggle {
-        display: block;
-      }
-          nav.active {
-        display: block;
-      }
-        nav a {
-        display: block;
-        margin: 10px 0;
-        font-size: 1.1rem;
-      }
-       header {
-        flex-direction: column;
-        align-items: flex-start;
-        padding: 20px 15px;
+        display: none;
+        font-size: 28px;
+        color: #fff;
+        cursor: pointer;
       }
 
-  
+      nav a {
+        color: #fff;
+        margin-left: 25px;
+        font-weight: 600;
+        font-size: 1.3rem;
+        user-select: none;
+      }
+      nav a:first-child {
+        margin-left: 0;
+      }
+      nav {
+        flex-grow: 1;
+        text-align: right;
+      }
+      /* Hero section */
+      .hero {
+        background: url("https://img.freepik.com/premium-photo/glass-smartphone-modern-mobile-device-3d-illustration-render_113524-390.jpg?semt=ais_hybrid&w=740")
+          no-repeat center center/cover;
+        height: 80vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        color: white;
+        padding: 0 40px;
+        text-shadow: 0 0 12px rgba(0, 0, 0, 0.85);
+        text-align: center;
+        animation: fadeInDown 1.5s ease forwards;
+      }
       .hero h2 {
-        font-size: 2.8rem;
+        font-size: 3.8rem;
+        margin-bottom: 25px;
+        font-weight: 900;
+        opacity: 0;
+        animation: fadeInUp 1.5s ease 0.4s forwards;
       }
       .hero p {
-        font-size: 1.2rem;
+        font-size: 1.6rem;
+        max-width: 700px;
+        margin: 0 auto 40px;
+        opacity: 0;
+        animation: fadeInUp 1.5s ease 0.8s forwards;
       }
       .hero button {
-        padding: 15px 35px;
-        font-size: 1.1rem;
+        background: #007bff;
+        border: none;
+        padding: 18px 55px;
+        font-size: 1.3rem;
+        color: white;
+        font-weight: 700;
+        border-radius: 6px;
+        cursor: pointer;
+        transition: background 0.3s ease, box-shadow 0.3s ease;
+        user-select: none;
+        box-shadow: 0 5px 10px rgba(0, 123, 255, 0.4);
+        opacity: 0;
+        animation: fadeInUp 1.5s ease 1.2s forwards;
       }
-    }
-    @media (max-width: 480px) {
+      .hero button:hover {
+        background: #0056b3;
+        box-shadow: 0 7px 15px rgba(0, 86, 179, 0.6);
+      }
+      /* Featured products */
+      .featured {
+        max-width: 1300px;
+        margin: 50px auto 80px;
+        padding: 0 30px;
+      }
+      .featured h3 {
+        text-align: center;
+        font-size: 2.8rem;
+        margin-bottom: 45px;
+        letter-spacing: 1.5px;
+        font-weight: 800;
+        color: #111;
+        user-select: none;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+        animation-delay: 1.5s;
+      }
       .products-grid {
-        grid-template-columns: 1fr;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 30px;
+        animation: fadeIn 1s ease forwards;
+        opacity: 0;
+        animation-delay: 1.7s;
+      }
+      .product-card {
+        background: white;
+        border-radius: 15px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+        padding: 25px;
+        text-align: center;
+        transition: transform 0.35s ease, box-shadow 0.35s ease;
+        cursor: pointer;
+        user-select: none;
+        position: relative;
+        overflow: hidden;
+      }
+      .product-card::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: 200%;
+        height: 200%;
+        background: linear-gradient(
+          120deg,
+          transparent,
+          rgba(0, 123, 255, 0.25),
+          transparent
+        );
+        transform: rotate(25deg);
+        transition: all 0.7s ease;
+        pointer-events: none;
+        opacity: 0;
+      }
+      .product-card:hover::before {
+        opacity: 1;
+        top: -10%;
+        left: -10%;
+      }
+      .product-card:hover {
+        transform: translateY(-12px);
+        box-shadow: 0 20px 40px rgba(0, 0, 0, 0.25);
+      }
+      .product-card img {
+        width: 100%;
+        max-height: 200px;
+        object-fit: contain;
+        margin-bottom: 20px;
+        border-radius: 10px;
+        transition: transform 0.4s ease;
+      }
+      .product-card:hover img {
+        transform: scale(1.07);
+      }
+      .product-card h4 {
+        font-size: 1.4rem;
+        margin-bottom: 15px;
+        color: #222;
+        font-weight: 700;
+        min-height: 50px;
+        transition: color 0.3s ease;
+      }
+      .product-card:hover h4 {
+        color: #007bff;
       }
       .product-card p {
-        height: auto;
+        font-size: 1.05rem;
+        color: #555;
+        margin-bottom: 18px;
+        height: 60px;
+        overflow: hidden;
+        line-height: 1.3;
       }
-    }
-  </style>
-</head>
-<body>
+      .price {
+        font-weight: 800;
+        font-size: 1.3rem;
+        color: #007bff;
+        letter-spacing: 0.05em;
+      }
+      /* Footer */
+      footer {
+        background: linear-gradient(135deg, #1f1f1f, #292929);
+        color: #eee;
+        padding: 50px 20px 30px;
+        text-align: center;
+        animation: fadeInUp 1s ease-in-out;
+      }
 
- <header>
-    <h1>Online Mobile World</h1>
-    <div class="menu-toggle" onclick="toggleMenu()">
-      <i class="fas fa-bars"></i>
-    </div>
-    <nav>
-   <a href="/">Home</a>
-    <a href="/products">Products</a>
-    <a href="/about">About</a>
-    <a href="/contact">Contact</a>
-    <!-- <a href="/cart">Cart</a> -->
-    <a href="/login">Login</a>
-    </nav>
-  </header>
-  
+      footer h3 {
+        font-size: 2rem;
+        margin-bottom: 10px;
+        color: #fff;
+      }
 
-<section class="hero">
-  <h2>Find Your Perfect Smartphone Today</h2>
-  <p>Explore the latest mobiles, exclusive offers, and trusted quality at unbeatable prices.</p>
-  <button onclick="alert('Redirecting to shop!')">Shop Now</button>
-</section>
+      footer p {
+        font-size: 1rem;
+        margin-bottom: 20px;
+        color: #ccc;
+      }
 
-<section class="featured">
-  <h3>Featured Mobiles</h3>
-  <div class="products-grid" id="product-list">
-    <!-- Product cards inserted by JS -->
-  </div>
-</section>
+      .footer-links {
+        margin: 20px 0;
+      }
 
-<footer>
-  <h3>Online Mobile World</h3>
-  <p>Bringing you the latest and greatest in mobile technology.</p>
-  <div class="footer-links">
-    <a href="#">Privacy Policy</a>
-    <a href="#">Terms</a>
-    <a href="#">Support</a>
-  </div>
-  <div class="social-icons">
-    <i class="fab fa-facebook-f"></i>
-    <i class="fab fa-twitter"></i>
-    <i class="fab fa-instagram"></i>
-    <i class="fab fa-youtube"></i>
-  </div>
-  <p style="margin-top: 30px;">&copy; 2025 Online Mobile World. All rights reserved.</p>
-</footer>
+      .footer-links a {
+        text-decoration: none;
+        color: #bbb;
+        margin: 0 15px;
+        transition: color 0.3s ease;
+      }
 
-<script>
-   function toggleMenu() {
-      document.querySelector('nav').classList.toggle('active');
-    }
- const products = [
-  {
-    name: "iPhone 14 Pro",
-    description: "6.1‑inch Super Retina XDR, A16 Bionic, Pro triple‑camera system.",
-    price: "₹94,900",
-    image: "https://via.placeholder.com/600x400?text=iPhone+14+Pro"
-  },
-  {
-    name: "iPhone 14 Plus",
-    description: "6.7‑inch Super Retina XDR, A15 Bionic, dual‑camera system.",
-    price: "₹89,900",
-    image: "https://via.placeholder.com/600x400?text=iPhone+14+Plus"
-  },
-  {
-    name: "iPhone 13",
-    description: "6.1‑inch OLED, A15 Bionic, dual‑camera system.",
-    price: "₹69,900",
-    image: "https://via.placeholder.com/600x400?text=iPhone+13"
-  },
-  {
-    name: "Samsung Galaxy S23 Ultra",
-    description: "6.8‑inch AMOLED, Snapdragon 8 Gen 2, 200 MP quad‑camera.",
-    price: "₹124,999",
-    image: "https://via.placeholder.com/600x400?text=Galaxy+S23+Ultra"
-  },
-  {
-    name: "Samsung Galaxy S23",
-    description: "6.1‑inch AMOLED, Snapdragon 8 Gen 2, versatile triple‑camera.",
-    price: "₹79,999",
-    image: "https://via.placeholder.com/600x400?text=Galaxy+S23"
-  },
-  {
-    name: "Samsung Galaxy Z Fold 4",
-    description: "7.6‑inch foldable AMOLED, multitasking powerhouse.",
-    price: "₹184,999",
-    image: "https://via.placeholder.com/600x400?text=Galaxy+Z+Fold+4"
-  },
-  {
-    name: "Google Pixel 7 Pro",
-    description: "6.7‑inch LTPO OLED, Tensor G2, outstanding computational camera.",
-    price: "₹84,999",
-    image: "https://via.placeholder.com/600x400?text=Pixel+7+Pro"
-  },
-  {
-    name: "Google Pixel 7",
-    description: "6.3‑inch OLED, Tensor G2, strong photo & video AI.",
-    price: "₹59,999",
-    image: "https://via.placeholder.com/600x400?text=Pixel+7"
-  },
-  {
-    name: "OnePlus 11",
-    description: "6.7‑inch AMOLED, Snapdragon 8 Gen 2, Hasselblad‑tuned cameras.",
-    price: "₹56,999",
-    image: "https://via.placeholder.com/600x400?text=OnePlus+11"
-  },
-  {
-    name: "OnePlus 10 Pro",
-    description: "6.7‑inch LTPO AMOLED, Snapdragon 8 Gen 1, quad‑camera by Hasselblad.",
-    price: "₹64,999",
-    image: "https://via.placeholder.com/600x400?text=OnePlus+10+Pro"
-  },
-  {
-    name: "Oppo Find X6 Pro",
-    description: "6.8‑inch AMOLED, Snapdragon 8 Gen 2, flagship imaging system.",
-    price: "₹109,990",
-    image: "https://via.placeholder.com/600x400?text=Oppo+Find+X6+Pro"
-  },
-  {
-    name: "Oppo Reno9 Pro",
-    description: "6.7‑inch AMOLED, Dimensity 9200, sleek design.",
-    price: "₹52,999",
-    image: "https://via.placeholder.com/600x400?text=Oppo+Reno9+Pro"
-  },
-  {
-    name: "Vivo X90 Pro",
-    description: "6.78‑inch AMOLED, Dimensity 9200, Zeiss cameras.",
-    price: "₹79,999",
-    image: "https://via.placeholder.com/600x400?text=Vivo+X90+Pro"
-  },
-  {
-    name: "Vivo V29 Pro",
-    description: "6.78‑inch AMOLED, Dimensity 8200, slim & stylish.",
-    price: "₹34,999",
-    image: "https://via.placeholder.com/600x400?text=Vivo+V29+Pro"
-  },
-  {
-    name: "Xiaomi 13 Pro",
-    description: "6.73‑inch AMOLED, Snapdragon 8 Gen 2, Leica‑branded camera.",
-    price: "₹79,999",
-    image: "https://via.placeholder.com/600x400?text=Xiaomi+13+Pro"
-  },
-  {
-    name: "Xiaomi 13T Pro",
-    description: "6.67‑inch AMOLED, Dimensity 9200+, 200 MP camera.",
-    price: "₹49,999",
-    image: "https://via.placeholder.com/600x400?text=Xiaomi+13T+Pro"
-  },
-  {
-    name: "Motorola Edge 40",
-    description: "6.67‑inch OLED, Snapdragon 8 Gen 2, ready‑to‑run gaming.",
-    price: "₹31,999",
-    image: "https://via.placeholder.com/600x400?text=Motorola+Edge+40"
-  },
-  {
-    name: "Motorola Edge+ (2024)",
-    description: "6.9‑inch OLED, Snapdragon 8 Gen 3, flagship specs.",
-    price: "₹64,999",
-    image: "https://via.placeholder.com/600x400?text=Motorola+Edge+Plus"
-  },
-  {
-    name: "Sony Xperia 1 V",
-    description: "6.5‑inch 4K OLED, Snapdragon 8 Gen 2, pro‑video features.",
-    price: "₹1,19,990",
-    image: "https://via.placeholder.com/600x400?text=Sony+Xperia+1V"
-  },
-  {
-    name: "Sony Xperia 10 V",
-    description: "6.1‑inch OLED, Snapdragon 695, compact mid‑range.",
-    price: "₹29,990",
-    image: "https://via.placeholder.com/600x400?text=Sony+Xperia+10V"
-  },
-  {
-    name: "Realme GT 3",
-    description: "6.74‑inch AMOLED, Snapdragon 8 Gen 2, 240 W fast charge.",
-    price: "₹49,999",
-    image: "https://via.placeholder.com/600x400?text=Realme+GT+3"
-  },
-  {
-    name: "Realme 11 Pro+",
-    description: "6.7‑inch AMOLED, Dimensity 920, 200 MP pro camera.",
-    price: "₹34,999",
-    image: "https://via.placeholder.com/600x400?text=Realme+11+Pro+"
-  },
-  {
-    name: "Realme Narzo 60 Pro",
-    description: "6.67‑inch AMOLED, Dimensity 7050, budget flagship.",
-    price: "₹24,999",
-    image: "https://via.placeholder.com/600x400?text=Realme+Narzo+60+Pro"
-  },
-  {
-    name: "Poco F5 Pro",
-    description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, Dolby Atmos.",
-    price: "₹29,999",
-    image: "https://via.placeholder.com/600x400?text=Poco+F5+Pro"
-  },
-  {
-    name: "Poco X7 Pro",
-    description: "6.67‑inch AMOLED, Dimensity 8100, value king.",
-    price: "₹24,999",
-    image: "https://via.placeholder.com/600x400?text=Poco+X7+Pro"
-  },
-  {
-    name: "Samsung Galaxy A55",
-    description: "6.4‑inch Super AMOLED, Exynos 1480, IP67 water‑resistant.",
-    price: "₹29,999",
-    image: "https://via.placeholder.com/600x400?text=Galaxy+A55"
-  },
-  {
-    name: "iQOO Neo 7",
-    description: "6.62‑inch AMOLED, Dimensity 8200, gaming‑focused.",
-    price: "₹27,999",
-    image: "https://via.placeholder.com/600x400?text=iQOO+Neo+7"
-  },
-  {
-    name: "Asus ROG Phone 7",
-    description: "6.78‑inch AMOLED 165 Hz, Snapdragon 8 Gen 2, gaming beast.",
-    price: "₹69,999",
-    image: "https://via.placeholder.com/600x400?text=ROG+Phone+7"
-  },
-  {
-    name: "Nothing Phone (2)",
-    description: "6.7‑inch AMOLED, Snapdragon 8+ Gen 1, Glyph lights.",
-    price: "₹39,999",
-    image: "https://via.placeholder.com/600x400?text=Nothing+Phone+2"
-  },
-  {
-    name: "Redmi Note 13 Pro+",
-    description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, 200 MP OIS.",
-    price: "₹29,999",
-    image: "https://via.placeholder.com/600x400?text=Redmi+Note+13+Pro+"
-  },
-  {
-    name: "Samsung Galaxy S21 FE",
-    description: "6.4‑inch AMOLED, Exynos 2100, triple‑camera value.",
-    price: "₹44,999",
-    image: "https://via.placeholder.com/600x400?text=Galaxy+S21+FE"
-  }
-];
+      .footer-links a:hover {
+        color: #fff;
+      }
 
+      .social-icons {
+        margin-top: 20px;
+      }
 
-  const container = document.getElementById('product-list');
-  products.forEach(({name, description, price, image}) => {
-    const div = document.createElement('div');
-    div.className = 'product-card';
-    div.innerHTML = `
+      .social-icons i {
+        font-size: 24px;
+        margin: 0 10px;
+        color: #999;
+        transition: transform 0.3s ease, color 0.3s ease;
+        cursor: pointer;
+      }
+
+      .social-icons i:hover {
+        color: #fff;
+        transform: scale(1.2);
+      }
+
+      /* Animations */
+      @keyframes fadeIn {
+        to {
+          opacity: 1;
+        }
+      }
+      @keyframes fadeInDown {
+        from {
+          opacity: 0;
+          transform: translateY(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      /* Responsive */
+      @media (max-width: 900px) {
+        nav {
+          display: none;
+          width: 100%;
+          margin-top: 10px;
+          text-align: left;
+        }
+        .menu-toggle {
+          display: block;
+        }
+        nav.active {
+          display: block;
+        }
+        nav a {
+          display: block;
+          margin: 10px 0;
+          font-size: 1.1rem;
+        }
+        header {
+          flex-direction: column;
+          align-items: flex-start;
+          padding: 20px 15px;
+        }
+
+        .hero h2 {
+          font-size: 2.8rem;
+        }
+        .hero p {
+          font-size: 1.2rem;
+        }
+        .hero button {
+          padding: 15px 35px;
+          font-size: 1.1rem;
+        }
+      }
+      @media (max-width: 480px) {
+        .products-grid {
+          grid-template-columns: 1fr;
+        }
+        .product-card p {
+          height: auto;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <h1>Online Mobile World</h1>
+      <div class="menu-toggle" onclick="toggleMenu()">
+        <i class="fas fa-bars"></i>
+      </div>
+      <nav>
+        <a href="/">Home</a>
+        <a href="/products">Products</a>
+        <a href="/about">About</a>
+        <a href="/contact">Contact</a>
+        <!-- <a href="/cart">Cart</a> -->
+        <a href="/login">Login</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <h2>Find Your Perfect Smartphone Today</h2>
+      <p>
+        Explore the latest mobiles, exclusive offers, and trusted quality at
+        unbeatable prices.
+      </p>
+      <button onclick="alert('Redirecting to shop!')">Shop Now</button>
+    </section>
+
+    <section class="featured">
+      <h3>Featured Mobiles</h3>
+      <div class="products-grid" id="product-list">
+        <!-- Product cards inserted by JS -->
+      </div>
+    </section>
+
+    <footer>
+      <h3>Online Mobile World</h3>
+      <p>Bringing you the latest and greatest in mobile technology.</p>
+      <div class="footer-links">
+        <a href="#">Privacy Policy</a>
+        <a href="#">Terms</a>
+        <a href="#">Support</a>
+      </div>
+      <div class="social-icons">
+        <i class="fab fa-facebook-f"></i>
+        <i class="fab fa-twitter"></i>
+        <i class="fab fa-instagram"></i>
+        <i class="fab fa-youtube"></i>
+      </div>
+      <p style="margin-top: 30px">
+        &copy; 2025 Online Mobile World. All rights reserved.
+      </p>
+    </footer>
+
+    <script>
+      function toggleMenu() {
+        document.querySelector("nav").classList.toggle("active");
+      }
+      const products = [
+        {
+          name: "iPhone 14 Pro",
+          description:
+            "6.1‑inch Super Retina XDR, A16 Bionic, Pro triple‑camera system.",
+          price: "₹94,900",
+          image: "https://m.media-amazon.com/images/I/61XO4bORHUL._UF1000,1000_QL80_.jpg",
+        },
+        {
+          name: "iPhone 14 Plus",
+          description:
+            "6.7‑inch Super Retina XDR, A15 Bionic, dual‑camera system.",
+          price: "₹89,900",
+          image: "https://vsprod.vijaysales.com/media/catalog/product/2/0/206090-image1_3.jpg?optimize=medium&fit=bounds&height=500&width=500",
+        },
+        {
+          name: "iPhone 13",
+          description: "6.1‑inch OLED, A15 Bionic, dual‑camera system.",
+          price: "₹69,900",
+          image: "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSU4ol82VVRtqN02_TbjIEGKzGE3oUERn_Hg2FIi0FZ2Haxrlo",
+        },
+        {
+          name: "Samsung Galaxy S23 Ultra",
+          description:
+            "6.8‑inch AMOLED, Snapdragon 8 Gen 2, 200 MP quad‑camera.",
+          price: "₹124,999",
+          image: "https://media-ik.croma.com/prod/https://media.croma.com/image/upload/v1715785342/Croma%20Assets/Communication/Mobiles/Images/268886_0_d7qopj.png",
+        },
+        {
+          name: "Samsung Galaxy S23",
+          description:
+            "6.1‑inch AMOLED, Snapdragon 8 Gen 2, versatile triple‑camera.",
+          price: "₹79,999",
+          image: "https://images.samsung.com/is/image/samsung/p6pim/in/sm-s911blicins/gallery/in-galaxy-s23-s911-sm-s911blicins-535265815?$684_547_PNG$",
+        },
+        {
+          name: "Samsung Galaxy Z Fold 4",
+          description: "7.6‑inch foldable AMOLED, multitasking powerhouse.",
+          price: "₹184,999",
+          image: "https://m.media-amazon.com/images/I/61cInRWmClL._UF1000,1000_QL80_.jpg",
+        },
+        {
+          name: "Google Pixel 7 Pro",
+          description:
+            "6.7‑inch LTPO OLED, Tensor G2, outstanding computational camera.",
+          price: "₹84,999",
+          image: "https://storage.googleapis.com/marvans-ecom.appspot.com/assets%2Fmarvansmarvansassets_marvansPixel%207pro18e99acad6a18f5d093f3419184d05c0d.webp",
+        },
+        {
+          name: "OnePlus 11",
+          description:
+            "6.7‑inch AMOLED, Snapdragon 8 Gen 2, Hasselblad‑tuned cameras.",
+          price: "₹56,999",
+          image: "https://m.media-amazon.com/images/I/61amb0CfMGL.jpg",
+        },
+        {
+          name: "OnePlus 10 Pro",
+          description:
+            "6.7‑inch LTPO AMOLED, Snapdragon 8 Gen 1, quad‑camera by Hasselblad.",
+          price: "₹64,999",
+          image: "https://m.media-amazon.com/images/I/618hqM-yxtL.jpg",
+        },
+        {
+          name: "Oppo Reno9 Pro",
+          description: "6.7‑inch AMOLED, Dimensity 9200, sleek design.",
+          price: "₹52,999",
+          image: "https://images.fonearena.com/blog/wp-content/uploads/2022/11/OPPO-Reno-9-Pro-Plus-.jpg",
+        },
+        {
+          name: "Vivo X90 Pro",
+          description: "6.78‑inch AMOLED, Dimensity 9200, Zeiss cameras.",
+          price: "₹79,999",
+          image: "https://bhatiamobile.com/file/2023/05/X90-Pro_Black_4.webp",
+        },
+        {
+          name: "Vivo V29 Pro",
+          description: "6.78‑inch AMOLED, Dimensity 8200, slim & stylish.",
+          price: "₹34,999",
+          image: "https://rukminid2.flixcart.com/image/750/900/xif0q/mobile/a/m/m/v29-5g-v2250-vivo-original-imagtyqfdbgyfmj4.jpeg?q=90&crop=false",
+        },
+        {
+          name: "Xiaomi 13T Pro",
+          description: "6.67‑inch AMOLED, Dimensity 9200+, 200 MP camera.",
+          price: "₹49,999",
+          image: "https://images-cdn.ubuy.co.in/6607900ec5bc935d51668cbd-xiaomi-13t-pro-5g-4g-lte-512gb-12gb.jpg",
+        },
+        {
+          name: "Motorola Edge 40",
+          description:
+            "6.67‑inch OLED, Snapdragon 8 Gen 2, ready‑to‑run gaming.",
+          price: "₹31,999",
+          image: "https://motorolain.vtexassets.com/arquivos/ids/158550/egde40_Viva-Magenta.png?v=638309911488700000",
+        },
+        {
+          name: "Realme GT 3",
+          description:
+            "6.74‑inch AMOLED, Snapdragon 8 Gen 2, 240 W fast charge.",
+          price: "₹49,999",
+          image: "https://rukminim2.flixcart.com/image/750/900/l3rmzrk0/mobile/a/f/2/-original-imagetmecznbydne.jpeg?q=90&crop=false",
+        },
+        {
+          name: "Realme 11 Pro+",
+          description: "6.7‑inch AMOLED, Dimensity 920, 200 MP pro camera.",
+          price: "₹34,999",
+          image: "https://www.93mobiles.com/wp-content/uploads/2025/04/273449_0_mkzhmj.webp",
+        },
+        {
+          name: "Realme Narzo 60 Pro",
+          description: "6.67‑inch AMOLED, Dimensity 7050, budget flagship.",
+          price: "₹24,999",
+          image: "https://rukminim3.flixcart.com/image/850/1000/xif0q/mobile/4/q/1/narzo-60-pro-5g-rmx3771-realme-original-imagrhtxnzgqq2dy.jpeg?q=90&crop=false",
+        },
+        {
+          name: "Poco F5 Pro",
+          description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, Dolby Atmos.",
+          price: "₹29,999",
+          image: "https://images-cdn.ubuy.co.in/66ebed36546c5128bb1c0f61-xiaomi-poco-f5-pro-5g-smartphone.jpg",
+        },
+        {
+          name: "Poco X7 Pro",
+          description: "6.67‑inch AMOLED, Dimensity 8100, value king.",
+          price: "₹24,999",
+          image: "https://akm-img-a-in.tosshub.com/indiatoday/images/story/202501/poco-x7-pro-020221168-16x9_1.jpg?VersionId=f60pEoMs0Ykf1SzLgiPpz1czsFZQWIrP&size=690:388",
+        },
+        {
+          name: "Samsung Galaxy A55",
+          description:
+            "6.4‑inch Super AMOLED, Exynos 1480, IP67 water‑resistant.",
+          price: "₹29,999",
+          image: "https://images.samsung.com/is/image/samsung/p6pim/in/sm-a556elbzins/gallery/in-galaxy-a55-5g-sm-a556-498926-sm-a556elbzins-540255081?$684_547_PNG$",
+        },
+        {
+          name: "iQOO Neo 7",
+          description: "6.62‑inch AMOLED, Dimensity 8200, gaming‑focused.",
+          price: "₹27,999",
+          image: "https://m.media-amazon.com/images/I/61JS7lF2aqL.jpg",
+        },
+        {
+          name: "Nothing Phone (2)",
+          description: "6.7‑inch AMOLED, Snapdragon 8+ Gen 1, Glyph lights.",
+          price: "₹39,999",
+          image: "https://media.croma.com/image/upload/v1708677619/Croma%20Assets/Communication/Mobiles/Images/301920_0_thffrs.png",
+        },
+        {
+          name: "Redmi Note 13 Pro+",
+          description: "6.67‑inch AMOLED, Snapdragon 8+ Gen 1, 200 MP OIS.",
+          price: "₹29,999",
+          image: "https://m.media-amazon.com/images/I/819sWoSDFRL._UF1000,1000_QL80_.jpg",
+        },
+        {
+          name: "Samsung Galaxy S21 FE",
+          description: "6.4‑inch AMOLED, Exynos 2100, triple‑camera value.",
+          price: "₹44,999",
+          image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTUOyveC7tl1iZBcTCqy414nM2mVs5MjL9vIQ&s",
+        },
+      ];
+
+      const container = document.getElementById("product-list");
+      products.forEach(({ name, description, price, image }) => {
+        const div = document.createElement("div");
+        div.className = "product-card";
+        div.innerHTML = `
       <img src="${image}" alt="${name}" loading="lazy" />
       <h4>${name}</h4>
       <p>${description}</p>
       <div class="price">${price}</div>
     `;
-    container.appendChild(div);
-  });
-</script>
-
-</body>
+        container.appendChild(div);
+      });
+    </script>
+  </body>
 </html>
